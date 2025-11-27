@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Le Kevinien – Restaurant Chinois</title>
-
 <style>
+/* === GLOBAL === */
 body {
     margin: 0;
     font-family: "Segoe UI", sans-serif;
@@ -53,9 +53,50 @@ nav a:hover {
     box-shadow: 0 0 10px #ff0000;
 }
 
+.hero {
+    background-image: url("https://images.unsplash.com/photo-1604908177225-e1e04f02c5a8");
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h2 {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px 40px;
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    font-size: 2.5rem;
+}
+
 .section {
     padding: 40px;
     text-align: center;
+}
+
+.chef-photo {
+    width: 300px;
+    border-radius: 10px;
+    border: 3px solid #ff0000;
+    box-shadow: 0 0 15px #ff0000;
+    margin-top: 20px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.menu-item {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff0000;
 }
 
 footer {
@@ -66,7 +107,7 @@ footer {
     margin-top: 40px;
 }
 
-/* === Fenêtre d'identification === */
+/* === MENU D'IDENTIFICATION === */
 #identificationMenu {
     position: fixed;
     top: 0;
@@ -147,6 +188,8 @@ footer {
 <body>
 
 <header>
+    <img src="https://pngimg.com/uploads/dragon/dragon_PNG17.png" class="dragon">
+    <img src="https://pngimg.com/uploads/dragon/dragon_PNG17.png" class="dragon dragon-right">
     <h1>Le Kevinien</h1>
 </header>
 
@@ -156,9 +199,31 @@ footer {
     <a id="contactBtn" href="#">Contact</a>
 </nav>
 
-<section class="section">
+<section class="hero" id="accueil">
     <h2>Bienvenue au restaurant chinois Le Kevinien</h2>
-    <p>Profitez de nos spécialités et amusez-vous sur notre site !</p>
+</section>
+
+<section class="section">
+    <h2>Notre Chef</h2>
+    <p>Voici notre chef cuisinier, spécialiste des ramens et plats asiatiques.</p>
+    <img class="chef-photo" src="https://images.unsplash.com/photo-1551218808-94e220e084d2" alt="Chef asiatique">
+</section>
+
+<section class="section" id="menu">
+    <h2>Notre Carte</h2>
+    <p>Découvrez nos spécialités 🍜🐉</p>
+    <div class="menu-grid">
+        <div class="menu-item"><h3>Ramen Classique</h3><p>10,90 €</p></div>
+        <div class="menu-item"><h3>Ramen Poulet</h3><p>12,50 €</p></div>
+        <div class="menu-item"><h3>Ramen Épicé du Dragon</h3><p>13,90 €</p></div>
+        <div class="menu-item"><h3>Nouilles Sautées</h3><p>11,50 €</p></div>
+        <div class="menu-item"><h3>Boeuf Szechuan</h3><p>14,90 €</p></div>
+        <div class="menu-item"><h3>Riz Cantonais</h3><p>9,50 €</p></div>
+        <div class="menu-item"><h3>Poulet Général Tao</h3><p>13,50 €</p></div>
+        <div class="menu-item"><h3>Crevettes Impériales</h3><p>15,90 €</p></div>
+        <div class="menu-item"><h3>Soupe Miso</h3><p>6,50 €</p></div>
+        <div class="menu-item"><h3>Gyozas Maison</h3><p>8,90 €</p></div>
+    </div>
 </section>
 
 <footer>
