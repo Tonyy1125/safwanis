@@ -238,6 +238,7 @@ footer {
     <button class="userBtn" data-user="alexis">Alexis</button>
     <button class="userBtn" data-user="kevin">Kevin</button>
     <button class="userBtn" data-user="anthony">Anthony</button>
+    <button class="userBtn" data-user="mehdi">Mehdi</button>
     <div id="message"></div>
     <button id="closeMenu">Fermer</button>
 </div>
@@ -267,6 +268,7 @@ userBtns.forEach(btn => {
             case "alexis": msg = "Commande bichon !"; break;
             case "kevin": msg = "Ferme la page et ta gueule sale zjfcbsif !"; break;
             case "anthony": msg = "Bonjour chef... ouverture du panel d'admin !"; break;
+            case "mehdi": msg = "C'est bon t'es content??"; break;
         }
         messageEl.textContent = msg;
         messageEl.classList.add("show");
