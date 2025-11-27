@@ -121,15 +121,15 @@
             margin-top: 40px;
         }
 
-        /* 🎮 MINI-JEUX RAMEN */
+        /* === MINI-JEUX RAMEN === */
         #ramenGame {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0,0,0,0.85);
-            display: none;
+            background: rgba(0,0,0,0.88);
+            display: none; /* Caché par défaut */
             overflow: hidden;
             z-index: 9999;
             text-align: center;
@@ -157,6 +157,7 @@
             position: absolute;
             width: 70px;
             cursor: pointer;
+            user-select: none;
         }
     </style>
 </head>
@@ -203,7 +204,7 @@
     </div>
 </section>
 
-<!-- 🎮 MINI-JEUX RAMEN -->
+<!-- === MINI-JEU RAMENS === -->
 <div id="ramenGame">
     <button id="closeGame">Fermer</button>
     <h2>Attrape les Ramens ! 🍜</h2>
@@ -221,6 +222,7 @@
     const scoreDisplay = document.getElementById("score");
 
     let score = 0;
+    let spawnInterval = null;
 
     contactBtn.addEventListener("click", () => {
         ramenGame.style.display = "block";
@@ -228,24 +230,32 @@
     });
 
     closeGame.addEventListener("click", () => {
-        ramenGame.style.display = "none";
-        document.querySelectorAll(".ramen").forEach(r => r.remove());
-        score = 0;
-        scoreDisplay.textContent = "Score : 0";
+        stopGame();
     });
 
     function startGame() {
-        setInterval(() => {
+        score = 0;
+        scoreDisplay.textContent = "Score : " + score;
+
+        spawnInterval = setInterval(() => {
             createRamen();
-        }, 800);
+        }, 900);
+    }
+
+    function stopGame() {
+        ramenGame.style.display = "none";
+
+        clearInterval(spawnInterval);
+
+        document.querySelectorAll(".ramen").forEach(r => r.remove());
     }
 
     function createRamen() {
         const ramen = document.createElement("img");
-        ramen.src = "https://pngimg.com/uploads/ramen/ramen_PNG53.png";
+        ramen.src = "https://png.pngtree.com/png-clipart/20230927/original/pngtree-ramen-noodles-instant-food-png-image_13152582.png";
         ramen.classList.add("ramen");
 
-        ramen.style.left = Math.random() * (window.innerWidth - 100) + "px";
+        ramen.style.left = Math.random() * (window.innerWidth - 80) + "px";
         ramen.style.top = "-80px";
 
         ramenGame.appendChild(ramen);
@@ -256,16 +266,18 @@
             ramen.remove();
         });
 
+        let fallSpeed = 3;
+
         let fall = setInterval(() => {
-            ramen.style.top = (parseInt(ramen.style.top) + 5) + "px";
+            ramen.style.top = (parseInt(ramen.style.top) + fallSpeed) + "px";
+
             if (parseInt(ramen.style.top) > window.innerHeight) {
                 ramen.remove();
                 clearInterval(fall);
             }
-        }, 30);
+        }, 20);
     }
 </script>
 
 </body>
 </html>
-
