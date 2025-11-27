@@ -6,14 +6,12 @@
 <title>Le Kevinien – Restaurant Chinois</title>
 
 <style>
-    /* === Styles généraux === */
     body {
         margin: 0;
         font-family: "Segoe UI", sans-serif;
         background-color: #111;
         color: #fff;
         cursor: url('https://pngimg.com/uploads/dragon/dragon_PNG17.png'), auto;
-        overflow-x: hidden;
     }
 
     header {
@@ -69,51 +67,9 @@
         box-shadow: 0 0 10px #ff0000;
     }
 
-    .hero {
-        background-image: url("https://images.unsplash.com/photo-1604908177225-e1e04f02c5a8");
-        background-size: cover;
-        background-position: center;
-        height: 350px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .hero h2 {
-        background: rgba(0, 0, 0, 0.6);
-        padding: 20px 40px;
-        border: 2px solid #ff0000;
-        border-radius: 10px;
-        font-size: 2.5rem;
-        text-align: center;
-    }
-
     .section {
         padding: 40px;
         text-align: center;
-    }
-
-    .chef-photo {
-        width: 300px;
-        border-radius: 10px;
-        border: 3px solid #ff0000;
-        box-shadow: 0 0 15px #ff0000;
-        margin-top: 20px;
-    }
-
-    .menu-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 25px;
-        margin-top: 30px;
-    }
-
-    .menu-item {
-        background-color: #1a1a1a;
-        padding: 20px;
-        border: 2px solid #ff0000;
-        border-radius: 10px;
-        box-shadow: 0 0 10px #ff0000;
     }
 
     footer {
@@ -124,8 +80,8 @@
         margin-top: 40px;
     }
 
-    /* === Mini-jeu Contact (Ramens qui tombent) === */
-    #ramenGame {
+    /* === Fenêtre d'identification === */
+    #identificationMenu {
         position: fixed;
         top: 0;
         left: 0;
@@ -134,48 +90,40 @@
         background: rgba(0,0,0,0.95);
         display: none;
         z-index: 9999;
-        overflow: hidden;
-    }
-
-    #ramenGame h2 {
         text-align: center;
-        margin-top: 20px;
-        font-size: 2rem;
+        padding-top: 100px;
+    }
+
+    #identificationMenu h2 {
         color: #ff4444;
+        font-size: 2rem;
+        margin-bottom: 30px;
     }
 
-    .ramen {
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        user-select: none;
+    .userBtn {
+        display: inline-block;
+        margin: 15px;
+        padding: 15px 25px;
+        background-color: #1a1a1a;
+        border: 2px solid #ff0000;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 1.2rem;
         cursor: pointer;
-        transition: transform 0.2s;
+        transition: 0.25s;
     }
 
-    #ramenGame #score {
-        position: fixed;
-        top: 10px;
-        right: 20px;
+    .userBtn:hover {
+        background-color: #ff0000;
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 0 10px #ff0000;
+    }
+
+    #message {
+        margin-top: 40px;
         font-size: 1.5rem;
         color: #fff;
-    }
-
-    #ramenLost {
-        display: none;
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    .lostButton {
-        background: #ff0000;
-        padding: 15px 25px;
-        border: none;
-        border-radius: 8px;
-        color: white;
-        cursor: pointer;
-        font-size: 1.3rem;
-        margin-top: 20px;
     }
 </style>
 </head>
@@ -194,37 +142,59 @@
     <a id="contactBtn" href="#">Contact</a>
 </nav>
 
-<section class="hero" id="accueilSection">
-    <h2>Bienvenue au restaurant chinois Le Kevinien</h2>
-</section>
-
 <section class="section">
-    <h2>Notre Chef</h2>
-    <p>Voici notre chef cuisinier, spécialiste des ramens et plats asiatiques.</p>
-    <img class="chef-photo" src="https://images.unsplash.com/photo-1551218808-94e220e084d2" alt="Chef asiatique">
+    <h2>Bienvenue au restaurant chinois Le Kevinien</h2>
+    <p>Profitez de nos spécialités et amusez-vous sur notre site !</p>
 </section>
 
-<section class="section" id="menu">
-    <h2>Notre Carte</h2>
-    <p>Découvrez nos spécialités 🍜🐉</p>
-    <div class="menu-grid">
-        <div class="menu-item"><h3>Ramen Classique</h3><p>10,90 €</p></div>
-        <div class="menu-item"><h3>Ramen Poulet</h3><p>12,50 €</p></div>
-        <div class="menu-item"><h3>Ramen Épicé du Dragon</h3><p>13,90 €</p></div>
-        <div class="menu-item"><h3>Nouilles Sautées</h3><p>11,50 €</p></div>
-        <div class="menu-item"><h3>Boeuf Szechuan</h3><p>14,90 €</p></div>
-        <div class="menu-item"><h3>Riz Cantonais</h3><p>9,50 €</p></div>
-        <div class="menu-item"><h3>Poulet Général Tao</h3><p>13,50 €</p></div>
-        <div class="menu-item"><h3>Crevettes Impériales</h3><p>15,90 €</p></div>
-        <div class="menu-item"><h3>Soupe Miso</h3><p>6,50 €</p></div>
-        <div class="menu-item"><h3>Gyozas Maison</h3><p>8,90 €</p></div>
-    </div>
-</section>
+<footer>
+    © 2025 Le Kevinien – Tous droits réservés
+</footer>
 
-<section class="section" id="contactSection">
-    <h2>Contact</h2>
-    <p>📍 Adresse : 12 rue du Dragon Rouge, Paris</p>
-    <p>📞 Téléphone : 01 23 45 67 89</p>
-</section>
+<!-- === Menu d'identification === -->
+<div id="identificationMenu">
+    <h2>Veuillez vous identifier :</h2>
+    <button class="userBtn" data-user="matteo">Matteo</button>
+    <button class="userBtn" data-user="alexis">Alexis</button>
+    <button class="userBtn" data-user="kevin">Kevin</button>
+    <button class="userBtn" data-user="anthony">Anthony</button>
+    <div id="message"></div>
+</div>
 
-<!-- === Mini-j
+<script>
+    const contactBtn = document.getElementById("contactBtn");
+    const identificationMenu = document.getElementById("identificationMenu");
+    const messageEl = document.getElementById("message");
+    const userBtns = document.querySelectorAll(".userBtn");
+
+    contactBtn.addEventListener("click", e => {
+        e.preventDefault();
+        identificationMenu.style.display = "block";
+        messageEl.textContent = "";
+    });
+
+    userBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const user = btn.dataset.user.toLowerCase();
+            switch(user) {
+                case "matteo":
+                    messageEl.textContent = "Salut le goat, prends un menu c'est gratuit pour toi bébé !";
+                    break;
+                case "alexis":
+                    messageEl.textContent = "Commande bichon !";
+                    break;
+                case "kevin":
+                    messageEl.textContent = "Ferme la page et ta gueule sale zjfcbsif !";
+                    break;
+                case "anthony":
+                    messageEl.textContent = "Bonjour chef... ouverture du panel d'admin !";
+                    break;
+                default:
+                    messageEl.textContent = "";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
