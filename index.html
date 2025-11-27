@@ -129,7 +129,7 @@
             width: 100vw;
             height: 100vh;
             background: rgba(0,0,0,0.88);
-            display: none; /* Caché par défaut */
+            display: none;
             overflow: hidden;
             z-index: 9999;
             text-align: center;
@@ -223,6 +223,7 @@
 
     let score = 0;
     let spawnInterval = null;
+    let baseSpeed = 3;  // vitesse de départ
 
     contactBtn.addEventListener("click", () => {
         ramenGame.style.display = "block";
@@ -244,9 +245,7 @@
 
     function stopGame() {
         ramenGame.style.display = "none";
-
         clearInterval(spawnInterval);
-
         document.querySelectorAll(".ramen").forEach(r => r.remove());
     }
 
@@ -266,7 +265,8 @@
             ramen.remove();
         });
 
-        let fallSpeed = 3;
+        // 🎯 Vitesse augmente avec le score
+        let fallSpeed = baseSpeed + score * 0.5;
 
         let fall = setInterval(() => {
             ramen.style.top = (parseInt(ramen.style.top) + fallSpeed) + "px";
