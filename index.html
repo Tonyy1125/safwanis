@@ -1,265 +1,136 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Le Safwanis - Restaurant Indien</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Kevinien – Restaurant Chinois</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background-color: #111;
+            color: #fff;
+        }
 
-    body {
-      font-family: "Poppins" sans-serif;
-      background-color: #fff8f0;
-      color: #333;
-      line-height: 1.6;
-    }
+        header {
+            background-color: #b30000;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 3px 3px 5px #000;
+        }
 
-    header {
-      background-color: #8b0000;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+        /* Dragon décoratif */
+        .dragon {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            width: 120px;
+            opacity: 0.7;
+        }
 
-    header h1 {
-      font-size: 1.8rem;
-      font-family: "Georgia" serif;
-    }
+        .dragon-right {
+            right: 10px;
+            left: auto;
+            transform: scaleX(-1);
+        }
 
-    nav a {
-      margin-left: 1.5rem;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
+        nav {
+            background-color: #000;
+            padding: 10px;
+            text-align: center;
+        }
 
-    nav a:hover {
-      color: #ffcc66;
-    }
+        nav a {
+            color: #ff4444;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-    .hero {
-      background: url('https://images.unsplash.com/photo-1600628422019-90d99a99902b') center/cover no-repeat;
-      height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-      position: relative;
-    }
+        nav a:hover {
+            color: #fff;
+        }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.5);
-    }
+        .hero {
+            background-image: url("https://images.unsplash.com/photo-1604908177225-e1e04f02c5a8");
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 600px;
-    }
+        .hero h2 {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px 40px;
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            font-size: 2.5rem;
+        }
 
-    .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+        .section {
+            padding: 40px;
+            text-align: center;
+        }
 
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
+        .ramen-img {
+            width: 300px;
+            border: 3px solid #ff0000;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #ff0000;
+        }
 
-    .btn {
-      background-color: #ffcc66;
-      color: #8b0000;
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #ffd98e;
-    }
-
-    section {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    #about {
-      background-color: #fff0e6;
-    }
-
-    #about h2 {
-      color: #8b0000;
-      margin-bottom: 1rem;
-    }
-
-    #about p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-    }
-
-    #menu {
-      background-color: #fff8f0;
-    }
-
-    #menu h2 {
-      color: #8b0000;
-      margin-bottom: 2rem;
-    }
-
-    .menu-items {
-      display: grid;
-      grid-template-columns: repeat(auto-fit minmax(250px 1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .menu-item {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      padding: 1rem;
-    }
-
-    .menu-item img {
-      width: 100%;
-      border-radius: 10px;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .menu-item h3 {
-      color: #8b0000;
-      margin: 0.8rem 0 0.3rem;
-    }
-
-    #contact {
-      background-color: #8b0000;
-      color: white;
-    }
-
-    #contact h2 {
-      margin-bottom: 1rem;
-    }
-
-    #contact p {
-      margin: 0.3rem 0;
-    }
-
-    footer {
-      background-color: #5a0000;
-      color: #ffcc66;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 2rem;
-      }
-      header {
-        flex-direction: column;
-      }
-      nav a {
-        display: inline-block;
-        margin: 0.5rem;
-      }
-    }
-  </style>
+        footer {
+            background-color: #000;
+            padding: 20px;
+            text-align: center;
+            color: #777;
+            margin-top: 40px;
+        }
+    </style>
 </head>
+
 <body>
 
-  <header>
-    <h1>Le Safwanis</h1>
-    <nav>
-      <a href="#about">A propos</a>
-      <a href="#menu">Menu</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header>
+    <img src="https://pngimg.com/uploads/dragon/dragon_PNG17.png" class="dragon">
+    <img src="https://pngimg.com/uploads/dragon/dragon_PNG17.png" class="dragon dragon-right">
+    <h1>Le Kevinien</h1>
+</header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Saveurs authentiques de lInde ????</h2>
-      <p>Decouvrez nos plats epices prepares avec passion et tradition</p>
-      <a href="#menu" class="btn">Voir le menu</a>
-    </div>
-  </section>
+<nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#menu">Menu</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-  <section id="about">
-    <h2>A propos de nous</h2>
-    <p>
-      Bienvenue au <strong>Safwanis</strong> un restaurant indien qui vous invite a un voyage culinaire unique  
-      Nous selectionnons des ingredients frais et des epices venues directement dInde pour offrir une experience riche en gouts et en couleurs
-    </p>
-  </section>
+<section class="hero" id="accueil">
+    <h2>Bienvenue au restaurant chinois Le Kevinien par kevin le vietnamien</h2>
+</section>
 
-  <section id="menu">
-    <h2>Notre Menu</h2>
-    <div class="menu-items">
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1604908177525-3c289dd0240a" alt="Poulet Tikka Masala">
-        <h3>Poulet Tikka Masala</h3>
-        <p>Poulet marine et mijote dans une sauce cremeuse et epicee</p>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1626203274557-44b5b0541c5d" alt="Biryani">
-        <h3>Biryani Royal</h3>
-        <p>Riz basmati parfume aux epices servi avec agneau ou legumes</p>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1621609760237-cf23c6dc2c2d" alt="Naan au fromage">
-        <h3>Naan au Fromage</h3>
-        <p>Pain traditionnel indien moelleux et garni de fromage fondant</p>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1604908176939-8a7c0c2e67d2" alt="Poulet Curry">
-        <h3>Poulet Curry</h3>
-        <p>Poulet tendre dans une sauce curry onctueuse et epicee</p>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1604908177751-b5d7c6f528d6" alt="Samosa">
-        <h3>Samosa</h3>
-        <p>Beignets farcis aux legumes epices croustillants</p>
-      </div>
-    </div>
-  </section>
+<section class="section" id="menu">
+    <h2>Nos Ramens</h2>
+    <p>Découvrez nos délicieux ramens faits maison !</p>
+    <img class="ramen-img" src="https://images.unsplash.com/photo-1605478371335-27bb0f963464" alt="Bol de ramen">
+</section>
 
-  <section id="contact">
-    <h2>Nous contacter</h2>
-    <p>?? 67676 Rue Clemenceau Montpellier</p>
-    <p>?? 0656675050</p>
-    <p>?? contact@lesafwanis.fr</p>
-    <p>?? Ouvert du mardi au dimanche de 11h30 a 23h00</p>
-  </section>
+<section class="section" id="contact">
+    <h2>Contact</h2>
+    <p>📍 Adresse : 12 rue du TATATASAHURRRR, Paris</p>
+    <p>📞 Téléphone : 01 23 45 67 89</p>
+</section>
 
-  <footer>
-    &copy; 2025 Le Safwanis — Tous droits reserves
-  </footer>
+<footer>
+    © 2025 Le Kevinien – Tous droits réservés
+</footer>
 
 </body>
 </html>
