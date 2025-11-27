@@ -1,205 +1,183 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Kevinien – Restaurant Chinois</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Kevinien – Restaurant Chinois</title>
 
-    <style>
-        /* === CURSEUR DRAGON ROUGE === */
-        body {
-            cursor: url('https://pngimg.com/uploads/dragon/dragon_PNG17.png'), auto;
-            margin: 0;
-            font-family: "Segoe UI", sans-serif;
-            background-color: #111;
-            color: #fff;
-        }
+<style>
+    /* === Styles généraux === */
+    body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background-color: #111;
+        color: #fff;
+        cursor: url('https://pngimg.com/uploads/dragon/dragon_PNG17.png'), auto;
+        overflow-x: hidden;
+    }
 
-        header {
-            background-color: #b30000;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
+    header {
+        background-color: #b30000;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+    }
 
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-            text-shadow: 3px 3px 5px #000;
-        }
+    header h1 {
+        font-size: 3rem;
+        margin: 0;
+        text-shadow: 3px 3px 5px #000;
+    }
 
-        .dragon {
-            position: absolute;
-            top: -10px;
-            left: 10px;
-            width: 120px;
-            opacity: 0.7;
-        }
+    .dragon {
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        width: 120px;
+        opacity: 0.7;
+    }
 
-        .dragon-right {
-            right: 10px;
-            left: auto;
-            transform: scaleX(-1);
-        }
+    .dragon-right {
+        right: 10px;
+        left: auto;
+        transform: scaleX(-1);
+    }
 
-        nav {
-            background-color: #000;
-            padding: 15px;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-        }
+    nav {
+        background-color: #000;
+        padding: 15px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+    }
 
-        nav a {
-            color: #ff4444;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 20px;
-            border: 2px solid #ff0000;
-            border-radius: 8px;
-            transition: 0.25s;
-            cursor: pointer;
-        }
+    nav a {
+        color: #ff4444;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 20px;
+        border: 2px solid #ff0000;
+        border-radius: 8px;
+        transition: 0.25s;
+    }
 
-        nav a:hover {
-            background-color: #ff0000;
-            color: white;
-            transform: scale(1.1);
-            box-shadow: 0 0 10px #ff0000;
-        }
+    nav a:hover {
+        background-color: #ff0000;
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 0 10px #ff0000;
+    }
 
-        .hero {
-            background-image: url("https://images.unsplash.com/photo-1604908177225-e1e04f02c5a8");
-            background-size: cover;
-            background-position: center;
-            height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .hero {
+        background-image: url("https://images.unsplash.com/photo-1604908177225-e1e04f02c5a8");
+        background-size: cover;
+        background-position: center;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-        .hero h2 {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 20px 40px;
-            border: 2px solid #ff0000;
-            border-radius: 10px;
-            font-size: 2.5rem;
-        }
+    .hero h2 {
+        background: rgba(0, 0, 0, 0.6);
+        padding: 20px 40px;
+        border: 2px solid #ff0000;
+        border-radius: 10px;
+        font-size: 2.5rem;
+        text-align: center;
+    }
 
-        .section {
-            padding: 40px;
-            text-align: center;
-        }
+    .section {
+        padding: 40px;
+        text-align: center;
+    }
 
-        .chef-photo {
-            width: 300px;
-            border-radius: 10px;
-            border: 3px solid #ff0000;
-            box-shadow: 0 0 15px #ff0000;
-            margin-top: 20px;
-        }
+    .chef-photo {
+        width: 300px;
+        border-radius: 10px;
+        border: 3px solid #ff0000;
+        box-shadow: 0 0 15px #ff0000;
+        margin-top: 20px;
+    }
 
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
 
-        .menu-item {
-            background-color: #1a1a1a;
-            padding: 20px;
-            border: 2px solid #ff0000;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #ff0000;
-        }
+    .menu-item {
+        background-color: #1a1a1a;
+        padding: 20px;
+        border: 2px solid #ff0000;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ff0000;
+    }
 
-        footer {
-            background-color: #000;
-            padding: 20px;
-            text-align: center;
-            color: #777;
-            margin-top: 40px;
-        }
+    footer {
+        background-color: #000;
+        padding: 20px;
+        text-align: center;
+        color: #777;
+        margin-top: 40px;
+    }
 
-        /* === MINI-JEU ACCUEIL === */
-        #clickGame {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0,0,0,0.9);
-            display: none;
-            z-index: 99999;
-            text-align: center;
-            padding-top: 60px;
-        }
+    /* === Mini-jeu Contact (Ramens qui tombent) === */
+    #ramenGame {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.95);
+        display: none;
+        z-index: 9999;
+        overflow: hidden;
+    }
 
-        #ramenClick {
-            width: 160px;
-            cursor: pointer;
-            margin-top: 60px;
-        }
+    #ramenGame h2 {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 2rem;
+        color: #ff4444;
+    }
 
-        #lostScreen {
-            display: none;
-            margin-top: 40px;
-        }
+    .ramen {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        user-select: none;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
 
-        /* === MINI-JEU MENU === */
-        #ingredientGame {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0,0,0,0.9);
-            display: none;
-            z-index: 99999;
-            text-align: center;
-            padding-top: 60px;
-        }
+    #ramenGame #score {
+        position: fixed;
+        top: 10px;
+        right: 20px;
+        font-size: 1.5rem;
+        color: #fff;
+    }
 
-        .ingredient {
-            display: inline-block;
-            width: 120px;
-            height: 120px;
-            margin: 15px;
-            background-color: #fff;
-            border-radius: 10px;
-            line-height: 120px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #111;
-            cursor: pointer;
-            user-select: none;
-        }
+    #ramenLost {
+        display: none;
+        text-align: center;
+        margin-top: 50px;
+    }
 
-        #ingredientLost {
-            display: none;
-            margin-top: 40px;
-        }
-
-        .lostButton {
-            background: #ff0000;
-            padding: 15px 25px;
-            border: none;
-            border-radius: 8px;
-            color: white;
-            cursor: pointer;
-            font-size: 1.3rem;
-            margin-top: 20px;
-        }
-
-        #ingredientInfo {
-            font-size: 1.8rem;
-            color: #fff;
-            margin-bottom: 20px;
-        }
-
-    </style>
+    .lostButton {
+        background: #ff0000;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+        font-size: 1.3rem;
+        margin-top: 20px;
+    }
+</style>
 </head>
 
 <body>
@@ -211,9 +189,9 @@
 </header>
 
 <nav>
-    <a id="accueilBtn" href="#">Accueil</a>
-    <a id="menuBtn" href="#">Menu</a>
-    <a href="#contact">Contact</a>
+    <a href="#accueil">Accueil</a>
+    <a href="#menu">Menu</a>
+    <a id="contactBtn" href="#">Contact</a>
 </nav>
 
 <section class="hero" id="accueilSection">
@@ -243,137 +221,10 @@
     </div>
 </section>
 
-<section class="section" id="contact">
+<section class="section" id="contactSection">
     <h2>Contact</h2>
     <p>📍 Adresse : 12 rue du Dragon Rouge, Paris</p>
     <p>📞 Téléphone : 01 23 45 67 89</p>
 </section>
 
-<!-- === MINI-JEU ACCUEIL === -->
-<div id="clickGame">
-    <h2>CLIQUE LE PLUS VITE POSSIBLE ! 🍜</h2>
-    <div id="gameInfo">Clics demandés : 1 / seconde</div>
-    <img id="ramenClick" src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-ramen-noodles-instant-food-png-image_13152582.png">
-    <div id="lostScreen">
-        <h1>😵 Perdu !</h1>
-        <button class="lostButton" id="retryBtn">Recommencer</button>
-    </div>
-</div>
-
-<!-- === MINI-JEU MENU === -->
-<div id="ingredientGame">
-    <h2>PRÉPARE LE RAMEN ! 🍜</h2>
-    <div id="ingredientInfo">Cliquez sur les bons ingrédients : Soupe Miso, Eau</div>
-    <div id="ingredientContainer"></div>
-    <div id="ingredientLost">
-        <h1>😵 Mauvais ingrédient !</h1>
-        <button class="lostButton" id="ingredientRetry">Recommencer</button>
-    </div>
-</div>
-
-<footer>
-    © 2025 Le Kevinien – Tous droits réservés
-</footer>
-
-<script>
-    /* === MINI-JEU ACCUEIL === */
-    const accueilBtn = document.getElementById("accueilBtn");
-    const clickGame = document.getElementById("clickGame");
-    const ramenClick = document.getElementById("ramenClick");
-    const lostScreen = document.getElementById("lostScreen");
-    const retryBtn = document.getElementById("retryBtn");
-    const info = document.getElementById("gameInfo");
-
-    let clicks = 0;
-    let clicksRequired = 1;
-    let gameInterval = null;
-
-    accueilBtn.addEventListener("click", function(e){
-        e.preventDefault();
-        clickGame.style.display = "block";
-        startClickGame();
-    });
-
-    function startClickGame() {
-        resetGame();
-        gameInterval = setInterval(() => {
-            if (clicks < clicksRequired) {
-                lose();
-                return;
-            }
-            clicks = 0;
-            clicksRequired *= 2;
-            info.textContent = "Clics demandés : " + clicksRequired + " / seconde";
-        }, 1000);
-    }
-
-    function resetGame() {
-        clicks = 0;
-        clicksRequired = 1;
-        lostScreen.style.display = "none";
-        info.textContent = "Clics demandés : 1 / seconde";
-        if (gameInterval) clearInterval(gameInterval);
-    }
-
-    function lose() {
-        clearInterval(gameInterval);
-        lostScreen.style.display = "block";
-    }
-
-    ramenClick.addEventListener("click", () => { clicks++; });
-    retryBtn.addEventListener("click", () => { startClickGame(); });
-
-    /* === MINI-JEU MENU === */
-    const menuBtn = document.getElementById("menuBtn");
-    const ingredientGame = document.getElementById("ingredientGame");
-    const ingredientContainer = document.getElementById("ingredientContainer");
-    const ingredientLost = document.getElementById("ingredientLost");
-    const ingredientRetry = document.getElementById("ingredientRetry");
-
-    const ingredients = [
-        {name: "Soupe Miso", good: true},
-        {name: "Eau", good: true},
-        {name: "Tomate", good: false},
-        {name: "Chocolat", good: false},
-        {name: "Bière", good: false},
-        {name: "Nouilles", good: true},
-        {name: "Poisson", good: false},
-    ];
-
-    menuBtn.addEventListener("click", function(e){
-        e.preventDefault();
-        ingredientGame.style.display = "block";
-        startIngredientGame();
-    });
-
-    function startIngredientGame() {
-        ingredientContainer.innerHTML = '';
-        ingredientLost.style.display = "none";
-
-        // Affiche 5 ingrédients aléatoires
-        let shuffled = ingredients.sort(() => 0.5 - Math.random());
-        let displayed = shuffled.slice(0, 5);
-
-        displayed.forEach(ing => {
-            const div = document.createElement("div");
-            div.className = "ingredient";
-            div.textContent = ing.name;
-            div.dataset.good = ing.good;
-            div.addEventListener("click", () => {
-                if (ing.good === false) {
-                    ingredientLost.style.display = "block";
-                } else {
-                    div.style.backgroundColor = "#0f0";
-                    div.style.color = "#000";
-                }
-            });
-            ingredientContainer.appendChild(div);
-        });
-    }
-
-    ingredientRetry.addEventListener("click", () => { startIngredientGame(); });
-
-</script>
-
-</body>
-</html>
+<!-- === Mini-j
