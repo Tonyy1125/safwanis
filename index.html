@@ -1,284 +1,292 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Le Kevinien – Restaurant Chinois</title>
-<style>
-body {
-    margin: 0;
-    font-family: "Segoe UI", sans-serif;
-    background-color: #111;
-    color: #fff;
-    cursor: url('https://pngimg.com/uploads/dragon/dragon_PNG17.png'), auto;
-}
+    <meta charset="UTF-8">
+    <title>Le Sahur - Kevin Sahur</title>
+    <style>
+        /* Couleurs principales : bleu et vert */
+        :root {
+            --bleu: #0000FF;   /* bleu standard [web:1] */
+            --vert: #008000;   /* vert standard [web:1] */
+            --fond-clair: #f5f5f5;
+        }
 
-header {
-    background-color: #b30000;
-    padding: 20px;
-    text-align: center;
-}
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--fond-clair);
+            color: #222;
+        }
 
-header h1 {
-    font-size: 3rem;
-    margin: 0;
-    text-shadow: 3px 3px 5px #000;
-}
+        header {
+            background: linear-gradient(90deg, var(--bleu), var(--vert));
+            color: white;
+            padding: 20px 40px;
+        }
 
-nav {
-    background-color: #000;
-    padding: 15px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
 
-nav a {
-    color: #ff4444;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: 2px solid #ff0000;
-    border-radius: 8px;
-    transition: 0.25s;
-}
+        header p {
+            margin: 5px 0 0;
+            font-size: 0.95rem;
+        }
 
-nav a:hover {
-    background-color: #ff0000;
-    color: white;
-    transform: scale(1.1);
-    box-shadow: 0 0 10px #ff0000;
-}
+        nav {
+            background-color: #ffffff;
+            border-bottom: 2px solid var(--bleu);
+        }
 
-.hero {
-    background-image: url("https://images.unsplash.com/photo-1604908177225-e1e04f02c5a8");
-    background-size: cover;
-    background-position: center;
-    height: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 10px 40px;
+            display: flex;
+            gap: 20px;
+        }
 
-.hero h2 {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 20px 40px;
-    border: 2px solid #ff0000;
-    border-radius: 10px;
-    font-size: 2.5rem;
-}
+        nav a {
+            text-decoration: none;
+            color: var(--bleu);
+            font-weight: bold;
+        }
 
-.section {
-    padding: 40px;
-    text-align: center;
-}
+        nav a:hover {
+            color: var(--vert);
+        }
 
-.chef-photo {
-    width: 300px;
-    border-radius: 10px;
-    border: 3px solid #ff0000;
-    box-shadow: 0 0 15px #ff0000;
-    margin-top: 20px;
-}
+        main {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
 
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
+        .section-titre {
+            border-left: 4px solid var(--vert);
+            padding-left: 10px;
+            margin-bottom: 10px;
+            color: var(--bleu);
+        }
 
-.menu-item {
-    background-color: #1a1a1a;
-    padding: 20px;
-    border: 2px solid #ff0000;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #ff0000;
-}
+        .intro {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-left: 4px solid var(--bleu);
+            padding: 15px 20px;
+            margin-bottom: 20px;
+        }
 
-footer {
-    background-color: #000;
-    padding: 20px;
-    text-align: center;
-    color: #777;
-    margin-top: 40px;
-}
+        .bio {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            background-color: #ffffff;
+            border-radius: 4px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
 
-/* === MENU IDENTIFICATION === */
-#identificationMenu {
-    position: fixed;
-    top: -100%;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.95);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: top 0.5s ease, opacity 0.5s ease;
-    z-index: 1000;
-}
+        .bio-texte {
+            flex: 2;
+            min-width: 250px;
+        }
 
-#identificationMenu.show {
-    top: 0;
-    opacity: 1;
-    pointer-events: auto;
-}
+        .bio-texte h3 {
+            margin-top: 0;
+            color: var(--bleu);
+        }
 
-#identificationMenu h2 {
-    color: #ff4444;
-    font-size: 2rem;
-    margin-bottom: 30px;
-}
+        .bio-infos {
+            margin-top: 10px;
+        }
 
-.userBtn {
-    display: inline-block;
-    margin: 10px;
-    padding: 15px 25px;
-    background-color: #1a1a1a;
-    border: 2px solid #ff0000;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: 0.25s;
-}
+        .bio-portrait {
+            flex: 1;
+            min-width: 220px;
+            text-align: center;
+        }
 
-.userBtn:hover {
-    background-color: #ff0000;
-    color: white;
-    transform: scale(1.1);
-    box-shadow: 0 0 10px #ff0000;
-}
+        .bio-portrait img {
+            max-width: 100%;
+            border-radius: 8px;
+            border: 3px solid var(--vert);
+        }
 
-/* Message animation */
-#message {
-    margin-top: 30px;
-    font-size: 1.5rem;
-    color: #fff;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
+        .galerie {
+            background-color: #ffffff;
+            border-radius: 4px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
 
-#message.show {
-    opacity: 1;
-    transform: translateY(0);
-}
+        .galerie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
 
-/* Close button */
-#closeMenu {
-    margin-top: 40px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    background-color: #ff0000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    transition: 0.25s;
-}
+        .galerie-item {
+            overflow: hidden;
+            border-radius: 6px;
+            border: 2px solid var(--bleu);
+        }
 
-#closeMenu:hover {
-    background-color: #ff4444;
-}
-</style>
+        .galerie-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .galerie-item p {
+            margin: 0;
+            padding: 5px 8px;
+            background-color: var(--bleu);
+            color: white;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.85rem;
+            background-color: var(--bleu);
+            color: white;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #cceeff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header, nav ul, main {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <header>
-    <h1>Le Kevinien</h1>
+    <h1>Le Sahur</h1>
+    <p>Site de référence sur Kevin Sahur&nbsp;: biographie, projets, photos et plus encore.</p>
 </header>
 
 <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#menu">Menu</a>
-    <a id="contactBtn" href="#">Contact</a>
+    <ul>
+        <li><a href="#kevin">Kevin Sahur</a></li>
+        <li><a href="#infos">Informations</a></li>
+        <li><a href="#photos">Galerie photos</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 </nav>
 
-<section class="hero" id="accueil">
-    <h2>Bienvenue au restaurant chinois Le Kevinien</h2>
-</section>
+<main>
+    <section class="intro">
+        <h2 class="section-titre">Bienvenue sur Le Sahur</h2>
+        <p>
+            Ce site rassemble toutes les informations importantes sur Kevin Sahur&nbsp;: son parcours, 
+            ses centres d'intérêt et ses projets personnels et professionnels.
+        </p>
+    </section>
 
-<section class="section">
-    <h2>Notre Chef</h2>
-    <p>Voici notre chef cuisinier, spécialiste des ramens et plats asiatiques.</p>
-    <img class="chef-photo" src="https://images.unsplash.com/photo-1551218808-94e220e084d2" alt="Chef asiatique">
-</section>
+    <section id="kevin" class="bio">
+        <div class="bio-texte">
+            <h3>Qui est Kevin Sahur&nbsp;?</h3>
+            <p>
+                Kevin Sahur est un homme passionné par le numérique, les voyages et la découverte 
+                de nouvelles cultures. Cette page a pour but de centraliser des informations 
+                sur sa vie et ses projets.
+            </p>
+            <div class="bio-infos">
+                <ul>
+                    <li>Date de naissance&nbsp;: à compléter</li>
+                    <li>Ville actuelle&nbsp;: à compléter</li>
+                    <li>Centres d'intérêt&nbsp;: technologie, culture asiatique, photographie, etc.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bio-portrait">
+            <!-- Remplace src par une vraie photo de Kevin -->
+            <img src="images/kevin-sahur.jpg" alt="Photo de Kevin Sahur">
+            <p>Portrait de Kevin Sahur</p>
+        </div>
+    </section>
 
-<section class="section" id="menu">
-    <h2>Notre Carte</h2>
-    <p>Découvrez nos spécialités 🍜🐉</p>
-    <div class="menu-grid">
-        <div class="menu-item"><h3>Ramen Classique</h3><p>10,90 €</p></div>
-        <div class="menu-item"><h3>Ramen Poulet</h3><p>12,50 €</p></div>
-        <div class="menu-item"><h3>Ramen Épicé du Dragon</h3><p>13,90 €</p></div>
-        <div class="menu-item"><h3>Nouilles Sautées</h3><p>11,50 €</p></div>
-        <div class="menu-item"><h3>Boeuf Szechuan</h3><p>14,90 €</p></div>
-        <div class="menu-item"><h3>Riz Cantonais</h3><p>9,50 €</p></div>
-        <div class="menu-item"><h3>Poulet Général Tao</h3><p>13,50 €</p></div>
-        <div class="menu-item"><h3>Crevettes Impériales</h3><p>15,90 €</p></div>
-        <div class="menu-item"><h3>Soupe Miso</h3><p>6,50 €</p></div>
-        <div class="menu-item"><h3>Gyozas Maison</h3><p>8,90 €</p></div>
-    </div>
-</section>
+    <section id="infos" class="galerie">
+        <h2 class="section-titre">Informations sur Kevin</h2>
+        <p>
+            Ajoute ici des sections détaillées sur la biographie de Kevin, son parcours scolaire, 
+            ses expériences professionnelles et ses projets en cours.
+        </p>
+        <ul>
+            <li>Biographie détaillée.</li>
+            <li>Chronologie des projets importants.</li>
+            <li>Liens vers ses réseaux sociaux ou travaux publics.</li>
+        </ul>
+    </section>
+
+    <section id="photos" class="galerie">
+        <h2 class="section-titre">Galerie de photos</h2>
+        <p>
+            Voici un espace dédié aux photos, par exemple des photos de personnes asiatiques, 
+            de voyages en Chine ou dans d'autres pays d'Asie.
+        </p>
+
+        <div class="galerie-grid">
+            <!-- Remplace les src par tes vraies images -->
+            <div class="galerie-item">
+                <img src="images/chine-1.jpg" alt="Photo 1 - scène de rue en Asie">
+                <p>Scène de rue dans une grande ville asiatique.</p>
+            </div>
+            <div class="galerie-item">
+                <img src="images/chine-2.jpg" alt="Photo 2 - paysage asiatique">
+                <p>Paysage de montagne et temple traditionnel.</p>
+            </div>
+            <div class="galerie-item">
+                <img src="images/chine-3.jpg" alt="Photo 3 - portrait">
+                <p>Portrait d'une personne en tenue traditionnelle.</p>
+            </div>
+            <div class="galerie-item">
+                <img src="images/chine-4.jpg" alt="Photo 4 - ville moderne">
+                <p>Vue nocturne d'une métropole asiatique.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="galerie">
+        <h2 class="section-titre">Contact</h2>
+        <p>
+            Pour toute question ou suggestion à propos de Kevin Sahur ou du site Le Sahur, 
+            tu peux ajouter ici un formulaire ou une adresse e-mail.
+        </p>
+        <p>
+            Exemple&nbsp;: <a href="mailto:contact@lesahur.com">contact@lesahur.com</a>
+        </p>
+    </section>
+</main>
 
 <footer>
-    © 2025 Le Kevinien – Tous droits réservés
+    <p>&copy; 2026 Le Sahur - Tous droits réservés.</p>
+    <p>Site personnel de référence sur Kevin Sahur.</p>
 </footer>
 
-<!-- Menu identification -->
-<div id="identificationMenu">
-    <h2>Veuillez vous identifier :</h2>
-    <button class="userBtn" data-user="matteo">Matteo</button>
-    <button class="userBtn" data-user="alexis">Alexis</button>
-    <button class="userBtn" data-user="kevin">Kevin</button>
-    <button class="userBtn" data-user="anthony">Anthony</button>
-    <button class="userBtn" data-user="mehdi">Mehdi</button>
-    <div id="message"></div>
-    <button id="closeMenu">Fermer</button>
-</div>
-
-<script>
-const contactBtn = document.getElementById("contactBtn");
-const identificationMenu = document.getElementById("identificationMenu");
-const messageEl = document.getElementById("message");
-const userBtns = document.querySelectorAll(".userBtn");
-const closeMenuBtn = document.getElementById("closeMenu");
-
-// Ouvrir le menu avec slide+fade
-contactBtn.addEventListener("click", e => {
-    e.preventDefault();
-    identificationMenu.classList.add("show");
-    messageEl.textContent = "";
-    messageEl.classList.remove("show");
-});
-
-// Afficher message avec animation
-userBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const user = btn.dataset.user.toLowerCase();
-        let msg = "";
-        switch(user) {
-            case "matteo": msg = "Salut le goat, prends un menu c'est gratuit pour toi bébé !"; break;
-            case "alexis": msg = "Commande bichon !"; break;
-            case "kevin": msg = "Ferme la page et ta gueule sale zjfcbsif !"; break;
-            case "anthony": msg = "Bonjour chef... ouverture du panel d'admin !"; break;
-            case "mehdi": msg = "C'est bon t'es content??"; break;
-        }
-        messageEl.textContent = msg;
-        messageEl.classList.add("show");
-    });
-});
-
-// Fermer le menu
-closeMenuBtn.addEventListener("click", () => {
-    identificationMenu.classList.remove("show");
-});
-</script>
 </body>
 </html>
